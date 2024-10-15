@@ -14,10 +14,9 @@ class CarMaintenanceApp extends StatefulWidget {
 }
 
 class _CarMaintenanceAppState extends State<CarMaintenanceApp> {
-  ThemeMode _themeMode = ThemeMode.system; // Default to system theme
+  ThemeMode _themeMode = ThemeMode.system;
   int _currentIndex = 0;  // Track the selected index for bottom navigation
 
-  // List of screens corresponding to each tab
   late List<Widget> _screens;
 
   @override
@@ -42,32 +41,37 @@ class _CarMaintenanceAppState extends State<CarMaintenanceApp> {
       themeMode: _themeMode,
       home: Scaffold(
         body: _screens[_currentIndex],  // Display the selected screen
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (int index) {
             setState(() {
               _currentIndex = index;  // Update index on tap
             });
           },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.garage),
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.garage_outlined),
+              selectedIcon: Icon(Icons.garage),
               label: 'Garage',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt),
+            NavigationDestination(
+              icon: Icon(Icons.list_alt_outlined),
+              selectedIcon: Icon(Icons.list_alt),
               label: 'Log',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
+            NavigationDestination(
+              icon: Icon(Icons.add_circle_outline),
+              selectedIcon: Icon(Icons.add_circle),
               label: 'Add Log',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.health_and_safety),
+            NavigationDestination(
+              icon: Icon(Icons.health_and_safety_outlined),
+              selectedIcon: Icon(Icons.health_and_safety),
               label: 'Health',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+            NavigationDestination(
+              icon: Icon(Icons.settings_outlined),
+              selectedIcon: Icon(Icons.settings),
               label: 'Settings',
             ),
           ],

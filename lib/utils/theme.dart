@@ -1,45 +1,50 @@
-// lib/utils/theme.dart
-
 import 'package:flutter/material.dart';
 
-// Light Theme
 ThemeData lightTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    primaryColor: Colors.black,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: Colors.black,  // Primary color set to black
+    scaffoldBackgroundColor: Colors.white,  // White background for light mode
+    colorScheme: ColorScheme.light(
+      primary: Colors.black,   // Primary accent black
+      secondary: const Color.fromARGB(255, 226, 226, 226), // Secondary accent black
+    ),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
+      backgroundColor: Colors.white, // AppBar color set to black
+      foregroundColor: Colors.white, // White text/icons on AppBar
+      
     ),
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.black),   // Updated from bodyText1
-      bodyMedium: TextStyle(color: Colors.black),  // Updated from bodyText2
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.blue[800],
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey,  // Adjust unselected item color if needed
     ),
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.black,
-      textTheme: ButtonTextTheme.primary,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.black,  // Floating Action Button in black
     ),
   );
 }
 
-// Dark Theme
 ThemeData darkTheme() {
   return ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Colors.white,
-    scaffoldBackgroundColor: Colors.black,
+    primaryColor: Colors.white,  // Primary color set to white
+    scaffoldBackgroundColor: Colors.black,  // Black background for dark mode
+    colorScheme: ColorScheme.dark(
+      primary: Colors.white,  // Primary accent white
+      secondary: const Color.fromARGB(255, 122, 122, 122), // Secondary accent white
+    ),
     appBarTheme: AppBarTheme(
+      backgroundColor: Colors.black, // AppBar color set to white
+      foregroundColor: Colors.white, // Black text/icons on AppBar
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.black,
-      foregroundColor: Colors.white,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,  // Adjust unselected item color if needed
     ),
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),   // Updated from bodyText1
-      bodyMedium: TextStyle(color: Colors.white),  // Updated from bodyText2
-    ),
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.white,
-      textTheme: ButtonTextTheme.primary,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.white,  // Floating Action Button in white
     ),
   );
 }
